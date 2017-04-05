@@ -1,6 +1,6 @@
 {
   "name": "eslint-bamboo-formatter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A reporter for eslint which produces a report compatible with Atlassian Bamboo Mocha Test Parser.",
   "keywords": [
     "eslint",
@@ -27,8 +27,7 @@
     "url": "https://github.com/voidberg/eslint-bamboo-formatter/issues"
   },
   "readmeFilename": "README.md",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "eslint": "^1.5.1",
     "eslint-config-airbnb": "^0.1.0",

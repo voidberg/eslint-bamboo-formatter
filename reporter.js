@@ -3,6 +3,7 @@ var path = require('path');
 var util = require('./util');
 
 var filename = process.env.ESLINT_FILE || 'eslint.json';
+var warningAsError = process.env.ESLINT_WARNING_AS_ERROR || false;
 
 module.exports = function reporter(results) {
   var output = {
@@ -20,15 +21,17 @@ module.exports = function reporter(results) {
   };
 
   results.forEach(function iterator(result) {
+    var errorCount = warningAsError ? (result.errorCount + result.warningCount) : result.errorCount;
+
     output.stats.tests++;
 
-    if (result.errorCount) {
+    if (errorCount) {
       output.stats.failures++;
       output.failures.push({
         title: path.basename(result.filePath),
         fullTitle: result.filePath,
         duration: 0,
-        errorCount: result.errorCount,
+        errorCount: errorCount,
         error: util.format(result),
       });
     } else {

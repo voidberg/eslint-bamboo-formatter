@@ -33,6 +33,7 @@ gulp.src(['js/**/*.js'])
 ### Output
 
 By default, the reporter writes to `eslint.json`. The file name can be changed by setting the `ESLINT_FILE` environment variable.
+Warnings are not reported by default. If you want to report warnings as errors, set the environment variable `ESLINT_WARNING_AS_ERROR`.
 
 ## License
 
