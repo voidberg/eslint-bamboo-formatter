@@ -27,7 +27,9 @@
     "url": "https://github.com/voidberg/eslint-bamboo-formatter/issues"
   },
   "readmeFilename": "README.md",
-  "dependencies": {},
+  "dependencies": {
+    "entities": "^1.1.1"
+  },
   "devDependencies": {
     "eslint": "^1.5.1",
     "eslint-config-airbnb": "^0.1.0",
