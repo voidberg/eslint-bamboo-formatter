@@ -1,22 +1,4 @@
-function encode(str) {
-  var pair;
-  var string = str;
-  // Taken from jshint-reporter-bamboo
-  var pairs = {
-    '&:': '&amp;',
-    '"': '&quot;',
-    '\'': '&apos;',
-    '<': '&lt;',
-    '>': '&gt;',
-  };
-
-  for (pair in pairs) {
-    if (typeof (string) !== 'undefined') {
-      string = string.replace(new RegExp(pair, 'g'), pairs[pair]);
-    }
-  }
-  return string || '';
-}
+var decodeXML = require("entities").decodeXML;
 
 function format(result) {
   var formatted = '';
@@ -30,7 +12,7 @@ function format(result) {
   }
 
   result.messages.forEach(function iterator(message) {
-    msg.push(counter + '. line ' + message.line + ', column ' + message.column + ': ' + encode(message.message));
+    msg.push(counter + '. line ' + message.line + ', column ' + message.column + ': ' + decodeXML(message.message));
     counter++;
   });
 
@@ -40,6 +22,5 @@ function format(result) {
 }
 
 module.exports = {
-  encode: encode,
   format: format,
 };
