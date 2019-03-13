@@ -37,7 +37,7 @@ module.exports = function reporter(results) {
       });
     } else {
       output.stats.passes += ignoreSuccess ? 0 : 1;
-      output.passes.push({
+      ignoreSuccess || output.passes.push({
         title: path.basename(result.filePath),
         fullTitle: result.filePath,
         duration: 0,
