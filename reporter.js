@@ -3,8 +3,8 @@ var path = require('path');
 var util = require('./util');
 
 var filename = process.env.ESLINT_FILE || process.env.ESLINT_BAMBOO_REPORT_FILE || 'eslint.json';
-var warningAsError = process.env.ESLINT_WARNING_AS_ERROR || false;
-var ignoreSuccess = process.env.ESLINT_BAMBOO_REPORT_IGNORE_SUCESS || false;
+var warningAsError = process.env.ESLINT_WARNING_AS_ERROR || process.env.ESLINT_BAMBOO_REPORT_WARNING_AS_ERROR || false;
+var ignoreSuccess = process.env.ESLINT_BAMBOO_REPORT_IGNORE_SUCCESS || false;
 
 module.exports = function reporter(results) {
   var output = {

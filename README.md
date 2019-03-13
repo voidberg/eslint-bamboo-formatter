@@ -32,8 +32,11 @@ gulp.src(['js/**/*.js'])
 
 ### Output
 
-By default, the reporter writes to `eslint.json`. The file name can be changed by setting the `ESLINT_FILE` environment variable.
-Warnings are not reported by default. If you want to report warnings as errors, set the environment variable `ESLINT_WARNING_AS_ERROR`.
+By default, the reporter writes to `eslint.json`. The file name can be changed by setting the `ESLINT_FILE` or `ESLINT_BAMBOO_REPORT_FILE` environment variable.
+Warnings are not reported by default. If you want to report warnings as errors, set the environment variable `ESLINT_BAMBOO_REPORT_WARNING_AS_ERROR`.
+
+By default bamboo's report's test count will increase for every lint check that
+passes. If you prefer to increase the test count for failed checks only, you can set the environment variable `ESLINT_BAMBOO_REPORT_IGNORE_SUCCESS`
 
 ## License
 
