@@ -2,8 +2,9 @@ var fs = require('fs');
 var path = require('path');
 var util = require('./util');
 
-var filename = process.env.ESLINT_FILE || 'eslint.json';
+var filename = process.env.ESLINT_FILE || process.env.ESLINT_BAMBOO_REPORT_FILE || 'eslint.json';
 var warningAsError = process.env.ESLINT_WARNING_AS_ERROR || false;
+var ignoreSuccess = process.env.ESLINT_BAMBOO_REPORT_IGNORE_SUCESS || false;
 
 module.exports = function reporter(results) {
   var output = {
@@ -23,7 +24,7 @@ module.exports = function reporter(results) {
   results.forEach(function iterator(result) {
     var errorCount = warningAsError ? (result.errorCount + result.warningCount) : result.errorCount;
 
-    output.stats.tests++;
+    output.stats.tests += ignoreSuccess && !errorCount ? 0 : 1;
 
     if (errorCount) {
       output.stats.failures++;
@@ -35,7 +36,7 @@ module.exports = function reporter(results) {
         error: util.format(result),
       });
     } else {
-      output.stats.passes++;
+      output.stats.passes += ignoreSuccess ? 0 : 1;
       output.passes.push({
         title: path.basename(result.filePath),
         fullTitle: result.filePath,
