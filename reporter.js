@@ -21,7 +21,9 @@ module.exports = function reporter(results) {
   };
 
   results.forEach(function iterator(result) {
-    var errorCount = warningAsError ? (result.errorCount + result.warningCount) : result.errorCount;
+    var errorCount = warningAsError
+      ? result.errorCount + result.warningCount
+      : result.errorCount;
 
     output.stats.tests++;
 
@@ -45,12 +47,10 @@ module.exports = function reporter(results) {
     }
   });
 
-  fs.writeFileSync(filename, JSON.stringify(output, null, 2), 'utf-8');
-
-  // console.log(results);
-
-  // var lintReporter = new LintReporter();
-  // var data = lintReporter.runReport(results, true, false);
-  //
-  // return templateUtils.applyTemplates(data);
+  try {
+    fs.writeFileSync(filename, JSON.stringify(output, null, 2), 'utf-8');
+    process.exit();
+  } catch (err) {
+    process.exit(1);
+  }
 };
