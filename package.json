@@ -1,6 +1,6 @@
 {
   "name": "eslint-bamboo-formatter",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A reporter for eslint which produces a report compatible with Atlassian Bamboo Mocha Test Parser.",
   "keywords": [
     "eslint",
