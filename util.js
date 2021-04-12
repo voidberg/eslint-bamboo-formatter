@@ -1,4 +1,4 @@
-var decodeXML = require("entities").decodeXML;
+var decodeXML = require('entities').decodeXML;
 
 function format(result) {
   var formatted = '';
