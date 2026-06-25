@@ -1,39 +1,36 @@
 # eslint-bamboo-formatter
-[![view on npm](http://img.shields.io/npm/v/eslint-bamboo-formatter.svg?style=flat)](https://www.npmjs.org/package/eslint-bamboo-formatter)
-[![npm module downloads per month](http://img.shields.io/npm/dm/eslint-bamboo-formatter.svg?style=flat)](https://www.npmjs.org/package/eslint-bamboo-formatter)
-[![Dependency status](https://david-dm.org/voidberg/eslint-bamboo-formatter.svg?style=flat)](https://david-dm.org/voidberg/eslint-bamboo-formatter)
+[![npm version](https://img.shields.io/npm/v/eslint-bamboo-formatter.svg?style=flat)](https://www.npmjs.com/package/eslint-bamboo-formatter)
+[![npm downloads per month](https://img.shields.io/npm/dm/eslint-bamboo-formatter.svg?style=flat)](https://www.npmjs.com/package/eslint-bamboo-formatter)
+[![CI](https://github.com/voidberg/eslint-bamboo-formatter/actions/workflows/ci.yml/badge.svg)](https://github.com/voidberg/eslint-bamboo-formatter/actions/workflows/ci.yml)
 
 > A reporter for eslint which produces a report compatible with Atlassian Bamboo Mocha Test Parser.
+
+## What it does
+
+[Bamboo](https://www.atlassian.com/software/bamboo) is Atlassian's CI server. Its Mocha Test Parser reads test results from a Mocha-style JSON file. This formatter writes ESLint results in that format, with one entry per linted file, so lint failures show up as test results in your Bamboo build report.
 
 ## Installation
 
 ```sh
-npm install eslint-bamboo-formatter
+npm install --save-dev eslint-bamboo-formatter
 ```
 
 ## Usage
 
-### With [ESLint CLI](http://eslint.org/docs/user-guide/command-line-interface):
+Run ESLint with the formatter from the [CLI](https://eslint.org/docs/latest/use/command-line-interface):
 
 ```sh
 eslint file.js -f node_modules/eslint-bamboo-formatter/reporter.js
 ```
 
-### With [Gulp ESLint](https://github.com/adametry/gulp-eslint):
+The formatter only reads ESLint's results, so it works the same whether your project uses the flat config (`eslint.config.js`) or the legacy `.eslintrc`.
 
-```js
-var eslint   = require('gulp-eslint');
-var reporter = require('eslint-bamboo-formatter');
+## Configuration
 
-gulp.src(['js/**/*.js'])
-  .pipe(eslint())
-  .pipe(eslint.format(reporter));
-```
+Two environment variables control the output:
 
-### Output
-
-By default, the reporter writes to `eslint.json`. The file name can be changed by setting the `ESLINT_FILE` environment variable.
-Warnings are not reported by default. If you want to report warnings as errors, set the environment variable `ESLINT_WARNING_AS_ERROR`.
+- `ESLINT_FILE`: path of the JSON file to write (default `eslint.json`).
+- `ESLINT_WARNING_AS_ERROR`: when set, warnings are counted as failures. Warnings are ignored by default.
 
 ## License
 
