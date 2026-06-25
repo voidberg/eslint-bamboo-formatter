@@ -7,7 +7,7 @@
 
 ## What it does
 
-[Bamboo](https://www.atlassian.com/software/bamboo) is Atlassian's CI server. Its Mocha Test Parser reads test results from a Mocha-style JSON file. This formatter writes ESLint results in that format, with one entry per linted file, so lint failures show up as test results in your Bamboo build report.
+Bamboo's Mocha Test Parser reads test results from a Mocha-style JSON file. This formatter writes ESLint results in that format, with one entry per linted file, so lint failures show up as test results in your Bamboo build report.
 
 ## Installation
 
@@ -31,6 +31,41 @@ Two environment variables control the output:
 
 - `ESLINT_FILE`: path of the JSON file to write (default `eslint.json`).
 - `ESLINT_WARNING_AS_ERROR`: when set, warnings are counted as failures. Warnings are ignored by default.
+
+## Example output
+
+Linting one file with an error and one clean file produces:
+
+```json
+{
+  "stats": {
+    "tests": 2,
+    "passes": 1,
+    "failures": 1,
+    "duration": 0,
+    "start": "2026-06-25T12:00:00.000Z",
+    "end": "2026-06-25T12:00:00.000Z"
+  },
+  "failures": [
+    {
+      "title": "bad.js",
+      "fullTitle": "/src/bad.js",
+      "duration": 0,
+      "errorCount": 1,
+      "error": "1 Failure: 1. line 2, column 5: Unexpected var, use let or const instead."
+    }
+  ],
+  "passes": [
+    {
+      "title": "good.js",
+      "fullTitle": "/src/good.js",
+      "duration": 0,
+      "errorCount": 0
+    }
+  ],
+  "skipped": []
+}
+```
 
 ## License
 
