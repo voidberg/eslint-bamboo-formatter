@@ -1,26 +1,15 @@
-var decodeXML = require('entities').decodeXML;
+const { decodeXML } = require('entities');
 
 function format(result) {
-  var formatted = '';
-  var msg = [];
-  var counter = 1;
+  const prefix = result.errorCount === 1
+    ? '1 Failure: '
+    : `${result.errorCount} Failures: `;
 
-  if (result.errorCount === 1) {
-    formatted = '1 Failure: ';
-  } else {
-    formatted = result.errorCount + ' Failures: ';
-  }
+  const messages = result.messages.map((message, index) => (
+    `${index + 1}. line ${message.line}, column ${message.column}: ${decodeXML(message.message)}`
+  ));
 
-  result.messages.forEach(function iterator(message) {
-    msg.push(counter + '. line ' + message.line + ', column ' + message.column + ': ' + decodeXML(message.message));
-    counter++;
-  });
-
-  formatted += msg.join('\n');
-
-  return formatted;
+  return prefix + messages.join('\n');
 }
 
-module.exports = {
-  format: format,
-};
+module.exports = { format };

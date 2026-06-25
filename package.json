@@ -14,8 +14,13 @@
     "url": "http://alexandrubadiu.ro"
   },
   "main": "reporter.js",
+  "files": [
+    "reporter.js",
+    "util.js"
+  ],
   "scripts": {
-    "eslint": "eslint *.js"
+    "eslint": "eslint .",
+    "test": "node --test"
   },
   "homepage": "https://github.com/voidberg/eslint-bamboo-formatter",
   "repository": {
@@ -31,8 +36,8 @@
     "entities": "^1.1.2"
   },
   "devDependencies": {
-    "eslint": "^1.5.1",
-    "eslint-config-airbnb": "^0.1.0",
-    "eslint-plugin-react": "^3.5.1"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.5.0",
+    "globals": "^17.7.0"
   }
 }
