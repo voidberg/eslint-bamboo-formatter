@@ -69,4 +69,4 @@ Linting one file with an error and one clean file produces:
 
 ## License
 
-[MIT](https://github.com/voidberg/eslint-bamboo-formatter/blob/master/LICENSE)
+[MIT](https://github.com/voidberg/eslint-bamboo-formatter/blob/main/LICENSE)
