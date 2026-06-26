@@ -1,0 +1,71 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`bamboo report > reports a clean file as a pass 1`] = `
+"{
+  "stats": {
+    "tests": 1,
+    "passes": 1,
+    "failures": 0,
+    "duration": 0,
+    "start": "2026-01-01T00:00:00.000Z",
+    "end": "2026-01-01T00:00:00.000Z"
+  },
+  "failures": [],
+  "passes": [
+    {
+      "title": "clean.js",
+      "fullTitle": "/src/clean.js",
+      "duration": 0,
+      "errorCount": 0
+    }
+  ],
+  "skipped": []
+}"
+`;
+
+exports[`bamboo report > reports a file with errors as a failure 1`] = `
+"{
+  "stats": {
+    "tests": 1,
+    "passes": 0,
+    "failures": 1,
+    "duration": 0,
+    "start": "2026-01-01T00:00:00.000Z",
+    "end": "2026-01-01T00:00:00.000Z"
+  },
+  "failures": [
+    {
+      "title": "errors.js",
+      "fullTitle": "/src/errors.js",
+      "duration": 0,
+      "errorCount": 4,
+      "error": "4 Failures: 1. line 1, column 1: Unexpected var, use let or const instead.\\n2. line 1, column 5: 'x' is assigned a value but never used.\\n3. line 1, column 10: Missing semicolon.\\n4. line 2, column 1: Unexpected var, use let or const instead.\\n5. line 2, column 5: 'y' is assigned a value but never used.\\n6. line 2, column 10: Missing semicolon."
+    }
+  ],
+  "passes": [],
+  "skipped": []
+}"
+`;
+
+exports[`bamboo report > treats a warning-only file as a pass by default 1`] = `
+"{
+  "stats": {
+    "tests": 1,
+    "passes": 1,
+    "failures": 0,
+    "duration": 0,
+    "start": "2026-01-01T00:00:00.000Z",
+    "end": "2026-01-01T00:00:00.000Z"
+  },
+  "failures": [],
+  "passes": [
+    {
+      "title": "warnings.js",
+      "fullTitle": "/src/warnings.js",
+      "duration": 0,
+      "errorCount": 0
+    }
+  ],
+  "skipped": []
+}"
+`;
