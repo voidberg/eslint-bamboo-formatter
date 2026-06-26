@@ -8,11 +8,7 @@
     "atlassian",
     "bamboo"
   ],
-  "author": {
-    "name": "Alexandru Badiu",
-    "email": "andu@ctrlz.ro",
-    "url": "http://alexandrubadiu.ro"
-  },
+  "author": "Alexandru Badiu <alexandru@badiu.me>",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
