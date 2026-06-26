@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/voidberg/eslint-bamboo-formatter/compare/eslint-bamboo-formatter-v0.2.0...eslint-bamboo-formatter-v0.3.0) (2026-06-26)
+
+
+### Miscellaneous Chores
+
+* release 0.3.0 ([8261362](https://github.com/voidberg/eslint-bamboo-formatter/commit/826136282b7e5231d567ad937dd5c1fac4c6c274))
+
 ## [0.2.0](https://github.com/voidberg/eslint-bamboo-formatter/compare/eslint-bamboo-formatter-v0.1.2...eslint-bamboo-formatter-v0.2.0) (2026-06-25)
 
 
