@@ -1,7 +1,9 @@
 # eslint-bamboo-formatter
-[![npm version](https://img.shields.io/npm/v/eslint-bamboo-formatter.svg?style=flat)](https://www.npmjs.com/package/eslint-bamboo-formatter)
-[![npm downloads per month](https://img.shields.io/npm/dm/eslint-bamboo-formatter.svg?style=flat)](https://www.npmjs.com/package/eslint-bamboo-formatter)
-[![CI](https://github.com/voidberg/eslint-bamboo-formatter/actions/workflows/ci.yml/badge.svg)](https://github.com/voidberg/eslint-bamboo-formatter/actions/workflows/ci.yml)
+
+[![Latest release on NPM](https://img.shields.io/npm/v/eslint-bamboo-formatter.svg)](https://www.npmjs.com/package/eslint-bamboo-formatter)
+[![npm module downloads per month](https://img.shields.io/npm/dm/eslint-bamboo-formatter.svg?style=flat)](https://www.npmjs.org/package/eslint-bamboo-formatter)
+[![Build states](https://github.com/voidberg/eslint-bamboo-formatter/workflows/CI/badge.svg)](https://github.com/voidberg/eslint-bamboo-formatter/actions?query=workflow%3A%22CI%22+branch%3Amain++)
+[![MIT License](https://img.shields.io/npm/l/eslint-bamboo-formatter.svg)](https://opensource.org/licenses/MIT)
 
 > A reporter for eslint which produces a report compatible with Atlassian Bamboo Mocha Test Parser.
 
@@ -14,6 +16,8 @@ Bamboo's Mocha Test Parser reads test results from a Mocha-style JSON file. This
 ```sh
 npm install --save-dev eslint-bamboo-formatter
 ```
+
+Requires Node.js 20.19 or newer.
 
 ## Usage
 
@@ -66,6 +70,21 @@ Linting one file with an error and one clean file produces:
   "skipped": []
 }
 ```
+
+## Development
+
+The formatter is written in TypeScript under `src/` and built with [tsup](https://tsup.egoist.dev/) to dual ESM/CJS with type declarations. The published `reporter.js` is a thin CommonJS entry that re-exports the build.
+
+```sh
+npm install
+npm run build      # bundle to dist/ (ESM + CJS + .d.ts)
+npm test           # run the vitest suite
+npm run lint       # eslint flat config
+npm run typecheck  # tsc --noEmit
+npm run format     # prettier --write
+```
+
+The Bamboo report format is pinned by snapshot tests, which generate realistic results through ESLint's Node API. Keep them green when touching the output.
 
 ## License
 
