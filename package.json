@@ -1,7 +1,7 @@
 {
   "name": "eslint-bamboo-formatter",
   "version": "0.3.0",
-  "description": "A reporter for eslint which produces a report compatible with Atlassian Bamboo Mocha Test Parser.",
+  "description": "ESLint formatter that outputs results as a Mocha-style JSON report, so lint failures show up as test results in Atlassian Bamboo build reports.",
   "keywords": [
     "eslint",
     "formatter",
